@@ -1,7 +1,7 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  border-bottom: 2px solid rgba(42, 54, 59, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 2px solid rgba(42, 54, 59, 0.6);
 }
