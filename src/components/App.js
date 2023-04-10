@@ -15,47 +15,47 @@ const LoginPage = lazy(() => import('./pages/Login'));
 const ContactsPage = lazy(() => import('./pages/Contacts'));
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+    const dispatch = useDispatch();
+    const { isRefreshing } = useAuth();
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    useEffect(() => {
+        dispatch(refreshUser());
+    }, [dispatch]);
 
-  return isRefreshing ? (
-    'Fetching user data...'
-  ) : (
-    <HelmetProvider>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                component={<RegisterPage />}
-                redirectTo="/contacts"
-              />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute
-                component={<LoginPage />}
-                redirectTo="/contacts"
-              />
-            }
-          />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
-            }
-          />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </HelmetProvider>
-  );
+    return isRefreshing ? (
+        'Fetching user data...'
+    ) : (
+        <HelmetProvider>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<HomePage />} />
+                    <Route
+                        path="/register"
+                        element={
+                            <RestrictedRoute
+                                component={<RegisterPage />}
+                                redirectTo="/contacts"
+                            />
+                        }
+                    />
+                    <Route
+                        path="/login"
+                        element={
+                            <RestrictedRoute
+                                component={<LoginPage />}
+                                redirectTo="/contacts"
+                            />
+                        }
+                    />
+                    <Route
+                        path="/contacts"
+                        element={
+                            <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+                        }
+                    />
+                </Route>
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </HelmetProvider>
+    );
 };
