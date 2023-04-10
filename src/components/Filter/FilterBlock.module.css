@@ -1,0 +1,9 @@
+.findContactWrapp {
+  text-align: center;
+}
+
+.label {
+  display: inline-block;
+  height: 80px;
+  text-align: left;
+}
